@@ -1,8 +1,2 @@
 __pycache__/
-*.pycdata.db
-log/emperor.log log/uwsgi.log
-socket.sock
-uwsgi.ini
-venv/bin venv/include venv/lib venv/lib64 venv/pip-selfcheck.json venv/pyvenv.cfg
-venv/
-log/
+*.pyc
