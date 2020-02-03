@@ -1,4 +1,3 @@
-import sqlite3
 from db import db
 
 class UserModel(db.Model):
@@ -11,6 +10,9 @@ class UserModel(db.Model):
     def __init__(self, username, password):
         self.username = username
         self.password = password
+
+    def json(self):
+        return {"username": self.username, "password": self.password, "id": self.id}
 
     def save_to_db(self):
         db.session.add(self)

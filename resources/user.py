@@ -1,4 +1,3 @@
-import sqlite3
 from flask_restful import Resource, reqparse
 from models.user import UserModel
 
@@ -19,11 +18,4 @@ class UserRegister(Resource):
 
 class UserList(Resource):
     def get(self):
-        connection = sqlite3.connect('data.db')
-        cursor = connection.cursor()
-        msg = ""
-        query = "SELECT * FROM users"
-        for row in cursor.execute(query):
-            msg += str(row)
-        connection.close()
-        return {"message": f"{msg}"}, 200
+        return {"users": [user.json() for user in UserModel.query.all()]}
